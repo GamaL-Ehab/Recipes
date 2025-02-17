@@ -1,0 +1,37 @@
+<section class="p-4 sm:ml-64 bg-gray-200 min-h-svh">
+    @if(mealDetails){
+        <h1 class="font-bold text-4xl p-5">{{mealDetails.strMeal}}</h1>
+        <div class="flex flex-wrap">
+            <div class="lg:w-2/3 flex flex-wrap">
+                <div class="lg:w-1/2 p-5">
+                    <img [src]="mealDetails.strMealThumb" [alt]="mealDetails.strMeal" class="rounded-xl">
+                    <div class="text-center pt-3">
+                        <a [href]="mealDetails.strYoutube" target="_blank">
+                            <button type="button" class="font-semibold cursor-pointer text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Youtube</button>
+                            </a>
+                        <a [href]="mealDetails.strSource" target="_blank"><button type="button" class="font-semibold cursor-pointer text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Source</button></a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 p-5">
+                    <p>
+                        {{mealDetails.strInstructions}}
+                    </p>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/3 p-5 bg-white rounded-xl h-fit">
+                <h2 class="font-semibold text-xl border-b-2 border-gray-300 py-2">Ingredients</h2>
+                <ul>
+                    @if(ingredients){
+                        @for(item of ingredients ; track $index){
+                            <li class="flex justify-between border-b-1 border-gray-300 py-1">
+                                <span>{{item.Ingredient}}</span>
+                                <span>{{item.Measure}}</span>
+                            </li>
+                        }
+                    
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</section>
